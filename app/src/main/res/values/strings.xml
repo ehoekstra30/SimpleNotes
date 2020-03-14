@@ -2,4 +2,6 @@
     <string name="app_name">SimpleNotes</string>
     <string name="save">Save</string>
     <string name="newNote">New Note</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
 </resources>
