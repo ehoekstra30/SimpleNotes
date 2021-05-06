@@ -19,7 +19,7 @@ import java.util.List;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    NoteDatabaseHelper dbHelper;
+    NoteDatabaseDAL dbHelper;
     SQLiteDatabase db;
 
     List<NoteDetails> noteDetailsList;
@@ -36,10 +36,15 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.update_activity);
-        dbHelper = new NoteDatabaseHelper(this);
+        dbHelper = new NoteDatabaseDAL(this);
         db = dbHelper.getWritableDatabase();
 
         titleBox = (EditText) findViewById(R.id.titleEditText);
+        contentBox = (EditText) findViewById(R.id.contentEditText);
+
+        btnUpdate = (Button) findViewById(R.id.bt_update);
+
+        //ADD ENTER EVENT
         contentBox = (EditText) findViewById(R.id.contentEditText);
 
         final int rowID = getIntent().getIntExtra("NOTEID",-1);
@@ -50,42 +55,44 @@ public class UpdateActivity extends AppCompatActivity {
 
         noteDetailsList.clear();;
 
-        if(c1 != null &&c1.getCount() != 0 ){
+        if(c1 != null &&c1.getCount() != 0 ) {
 
-            while(c1.moveToNext()){
+            while (c1.moveToNext()) {
 
                 titleBox.setText(c1.getString(c1.getColumnIndex(NoteDatabase.COLUMN_NAME_COL1)));
                 contentBox.setText(c1.getString(c1.getColumnIndex(NoteDatabase.COLUMN_NAME_COL2)));
 
 
             }
-            btnUpdate.setOnClickListener(new View.OnClickListener(){
-
-                @Override
-                public void onClick(View view){
-
-                    title = titleBox.getText().toString();
-                    content = contentBox.getText().toString();
-
-                    ContentValues values = new ContentValues();
-
-                    values.put(NoteDatabase.COLUMN_NAME_COL1, title);
-                    values.put(NoteDatabase.COLUMN_NAME_COL2, content);
-
-                    int updateID = db.update(NoteDatabase.TABLE_NAME,values,NoteDatabase._ID + " = " + rowID,null);
-
-                    if(updateID != -1){
-                        Toast.makeText(UpdateActivity.this,"Note Updated",Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else{
-                        Toast.makeText(UpdateActivity.this, "oh god oh fuck", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
         }
+
+        //INITIALIZE THIS CHECK CONTACTS APP
+        btnUpdate.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+
+                title = titleBox.getText().toString();
+                content = contentBox.getText().toString();
+
+                ContentValues values = new ContentValues();
+
+                values.put(NoteDatabase.COLUMN_NAME_COL1, title);
+                values.put(NoteDatabase.COLUMN_NAME_COL2, content);
+
+                int updateID = db.update(NoteDatabase.TABLE_NAME,values,NoteDatabase._ID + " = " + rowID,null);
+
+                if(updateID != -1){
+                    Toast.makeText(UpdateActivity.this,"Note Updated",Toast.LENGTH_SHORT);
+                    Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Toast.makeText(UpdateActivity.this, "oh god oh fuck", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
     @Override
     protected void onDestroy()

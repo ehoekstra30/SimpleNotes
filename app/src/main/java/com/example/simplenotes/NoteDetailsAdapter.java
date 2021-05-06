@@ -21,7 +21,7 @@ public class NoteDetailsAdapter extends RecyclerView.Adapter<NoteDetailsAdapter.
 
     List<NoteDetails> noteDetailsList;
     Context context;
-    NoteDatabaseHelper dbHelper;
+    NoteDatabaseDAL dbHelper;
     SQLiteDatabase db;
 
     public NoteDetailsAdapter(List<NoteDetails> noteDetailsList)
@@ -53,7 +53,7 @@ public class NoteDetailsAdapter extends RecyclerView.Adapter<NoteDetailsAdapter.
 
                 final NoteDetails noteDetails = noteDetailsList.get(position);
                 final int noteID = noteDetails.getNoteID();
-                dbHelper = new NoteDatabaseHelper(context);
+                dbHelper = new NoteDatabaseDAL(context);
                 db = dbHelper.getWritableDatabase();
                 PopupMenu menu = new PopupMenu(context,holder.ivMenu);
 
@@ -81,6 +81,7 @@ public class NoteDetailsAdapter extends RecyclerView.Adapter<NoteDetailsAdapter.
                         return false;
                     }
                 });
+                menu.show();
             }
         });
     }

@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.simplenotes.NoteDatabaseContract.NoteDatabase;
 
-public class NoteDatabaseHelper extends SQLiteOpenHelper {
+public class NoteDatabaseDAL extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Notes.db";
 
 
-    public NoteDatabaseHelper(Context context)
+    public NoteDatabaseDAL(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

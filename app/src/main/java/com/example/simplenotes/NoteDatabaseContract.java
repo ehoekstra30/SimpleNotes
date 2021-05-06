@@ -13,4 +13,5 @@ public class NoteDatabaseContract {
         public static final String COLUMN_NAME_COL1 = "title";
         public static final String COLUMN_NAME_COL2 = "content";
 
-    }}
+    }
+}

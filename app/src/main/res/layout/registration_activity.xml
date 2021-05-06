@@ -7,7 +7,7 @@
     android:background="@color/design_default_color_on_secondary">
 
     <EditText
-        android:id="@+id/titleEditText"
+        android:id="@+id/et_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -23,24 +23,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/contentEditText"
+        android:id="@+id/et_content"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:hint="@string/content"
-        android:inputType="text"
+        android:inputType="textPersonName"
         android:textColor="@color/cardview_light_background"
         android:textColorHint="@color/cardview_light_background"
         app:backgroundTint="@color/colorAccent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/et_title" />
 
 
     <Button
-        android:id="@+id/bt_update"
+        android:id="@+id/bt_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -52,20 +52,20 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-<!--    <Button-->
-<!--        android:id="@+id/bt_update"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:layout_marginLeft="8dp"-->
-<!--        android:layout_marginRight="8dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:backgroundTint="@color/colorAccent"-->
-<!--        android:text="Update"-->
-<!--        android:textColor="@color/cardview_light_background"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/et_up_pro" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/bt_update"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginLeft="8dp"-->
+    <!--        android:layout_marginRight="8dp"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:backgroundTint="@color/colorAccent"-->
+    <!--        android:text="Update"-->
+    <!--        android:textColor="@color/cardview_light_background"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/et_up_pro" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
